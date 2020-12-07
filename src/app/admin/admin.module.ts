@@ -37,6 +37,7 @@ import { ArrayListPipe } from './pipe/array-list.pipe';
 import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
 import { ChartistModule } from 'ng-chartist';
 import { ClienteAdminComponent } from './cliente/cliente-admin/cliente-admin.component';
+import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
 
 export const AdminRoutes: Routes = [
   {
@@ -55,7 +56,7 @@ export const AdminRoutes: Routes = [
     GrupoAdminComponent, GrupoEditComponent, GrupoNivelTemaAdminComponent, GrupoNivelTemaEditComponent,
     GrupoNivelEditComponent, GrupoNivelAdminComponent, LeccionAdminComponent, LeccionEditComponent,
     PreguntaEditComponent, DatageniaSelectComponent, OpcionRespuestaEditComponent, GrupoEstudianteAdminComponent,
-    GrupoEstudianteEditComponent, HassPermissionDirective, UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, DashboardAdminComponent, ClienteAdminComponent
+    GrupoEstudianteEditComponent, HassPermissionDirective, UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, DashboardAdminComponent, ClienteAdminComponent, ClienteEditComponent
   ],
   imports: [
     CommonModule,

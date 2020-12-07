@@ -75,6 +75,7 @@ export const CONSTANTS_SHARED = {
   fecha: 'Fecha',
   fechaMinima: 'La fecha mínima no es valida',
   fechaMaxima: 'La fecha máxima no es valida',
+  fechaCreacion: 'Fecha de creación',
   maxSizeFiled: 'El tamaño total no debe exceder ',
   fileSize: 'El tamaño del archivo no puede ser mayor de: ',
   formato_correo: 'El campo no tiene un formato de correo electrónico válido',
