@@ -36,56 +36,12 @@ import { UsuarioEditComponent } from './usuario/usuario-edit/usuario-edit.compon
 import { ArrayListPipe } from './pipe/array-list.pipe';
 import { DashboardAdminComponent } from './dashboard/dashboard-admin/dashboard-admin.component';
 import { ChartistModule } from 'ng-chartist';
+import { ClienteAdminComponent } from './cliente/cliente-admin/cliente-admin.component';
 
 export const AdminRoutes: Routes = [
   {
-    path: 'usuarios',
-      component: UsuarioAdminComponent,
-      canActivate: [AuthGuardService]
-  },
-  {
-  path: 'nivel',
-    component: NivelListComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-  path: 'tema',
-    component: TemaListComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'datagenia',
-    component: DatageniaListComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'grupo',
-    component: GrupoAdminComponent,
-    canActivate: [AuthGuardService]
-  },
-  {
-    path: 'grupo-nivel',
-      component: GrupoNivelAdminComponent,
-      canActivate: [AuthGuardService]
-  },
-  {
-    path: 'grupo-nivel-tema',
-      component: GrupoNivelTemaAdminComponent,
-      canActivate: [AuthGuardService]
-  },
-  {
-    path: 'lecciones',
-      component: LeccionAdminComponent,
-      canActivate: [AuthGuardService]
-  },
-  {
-    path: 'grupo-estudiante',
-      component: GrupoEstudianteAdminComponent,
-      canActivate: [AuthGuardService]
-  },
-  {
-    path: 'dashboard-admin',
-      component: DashboardAdminComponent,
+    path: 'clientes',
+      component: ClienteAdminComponent,
       canActivate: [AuthGuardService]
   }
 ];
@@ -99,7 +55,7 @@ export const AdminRoutes: Routes = [
     GrupoAdminComponent, GrupoEditComponent, GrupoNivelTemaAdminComponent, GrupoNivelTemaEditComponent,
     GrupoNivelEditComponent, GrupoNivelAdminComponent, LeccionAdminComponent, LeccionEditComponent,
     PreguntaEditComponent, DatageniaSelectComponent, OpcionRespuestaEditComponent, GrupoEstudianteAdminComponent,
-    GrupoEstudianteEditComponent, HassPermissionDirective, UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, DashboardAdminComponent
+    GrupoEstudianteEditComponent, HassPermissionDirective, UsuarioAdminComponent, UsuarioEditComponent, ArrayListPipe, DashboardAdminComponent, ClienteAdminComponent
   ],
   imports: [
     CommonModule,
