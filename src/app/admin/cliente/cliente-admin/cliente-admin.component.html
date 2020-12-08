@@ -47,8 +47,11 @@
 
               <ng-container matColumnDef="fechaCreacion">
                 <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.fechaCreacion}}</strong> </mat-header-cell>
-                <mat-cell *matCellDef="let cliente">
-                   {{cliente.fechaCreacion}}
+                <mat-cell *matCellDef="let cliente" aling="center">
+
+                    {{cliente.fechaCreacion | date:'dd/MM/yyyy' }}
+
+
                 </mat-cell>
               </ng-container>
 
