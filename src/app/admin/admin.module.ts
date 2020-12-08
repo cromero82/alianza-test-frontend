@@ -42,8 +42,7 @@ import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.compon
 export const AdminRoutes: Routes = [
   {
     path: 'clientes',
-      component: ClienteAdminComponent,
-      canActivate: [AuthGuardService]
+      component: ClienteAdminComponent
   }
 ];
 

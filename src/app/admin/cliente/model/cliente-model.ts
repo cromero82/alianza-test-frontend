@@ -1,6 +1,7 @@
 export class ClienteModel {
     id: number;
   nombre: string;
+  fechaCreacion: Date;
   sharedKey!: string;
   telefono!: string;
   correo!: string;
