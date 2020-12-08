@@ -1,21 +1,45 @@
 <mat-card>
   <mat-card-content>
     <mat-card-title> {{titulo}}
-      <div fxLayoutAlign="end">
+      <div fxLayoutAlign="left">
         <button mat-fab (click)="create()" color="primary" matTooltip="{{constants.crearNuevo}}" *userHassPermission="constants.rol_administrador">
           <mat-icon class="m-1">note_add</mat-icon>
         </button>
     </div>
+    <mat-card>
+      <mat-dialog-content style="font-size: medium;">
+        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+          <div class="item" fxFlex>
+            <div class="w-50">
+              <input matInput placeholder="Ingrese nombre"
+                [(ngModel)]="clienteCriteria.param" autocomplete="off" required>
+            </div>
+          </div>
 
+          <div class="item" fxFlex>
+            <div class="w-25" align="left">
+              <button mat-raised-button [disabled]="disableSubmit" color="default" (click)="onFilter()">
+                <mat-icon class="m-1">search</mat-icon>{{ constants.buscar }}
+              </button>
+            </div>
+          </div>
+
+          <div class="item" fxFlex>
+            <div class="w-25" align="end">
+              <button mat-raised-button [disabled]="disableSubmit" color="primary" (click)="onFilter()">
+                <mat-icon class="m-1">dynamic_form</mat-icon> Busqueda avanzada
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </mat-dialog-content>
+    </mat-card>
     </mat-card-title>
-    <mat-card-subtitle>{{ titulo}}</mat-card-subtitle>
-
+    <!-- <mat-card-subtitle>{{ titulo}}</mat-card-subtitle> -->
 
     <div *ngIf="loading=== true" fxLayout="column" fxLayoutAlign="center center">
       <mat-spinner [diameter]="50" color="primary"></mat-spinner>
-    </div>
-    <div class="">
-
     </div>
     <div class="center">
       <div [hidden]="loading">

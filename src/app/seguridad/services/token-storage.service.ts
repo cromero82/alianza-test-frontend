@@ -65,12 +65,13 @@ export class TokenStorageService {
   }
 
   public userHasRole(rol: string) {
-    const roles = this.getRolesUsuario();
-    const listaRoles = JSON.parse(roles) as string[];
-    if (listaRoles.includes(rol)) {
-      return true;
-    }
-    return false;
+    // const roles = this.getRolesUsuario();
+    // const listaRoles = JSON.parse(roles) as string[];
+    // if (listaRoles.includes(rol)) {
+    //   return true;
+    // }
+    // return false;
+    return true;
   }
 
 }

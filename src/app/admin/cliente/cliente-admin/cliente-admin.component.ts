@@ -20,16 +20,16 @@ import { ClienteDatasource } from '../model/cliente-datasource';
 export class ClienteAdminComponent implements OnInit, AfterViewInit {
   titulo = 'Gestión de clientes';
   MyDataSource: any;
-  ClienteCriteria: ClienteCriteria = new ClienteCriteria();
+  clienteCriteria: ClienteCriteria = new ClienteCriteria();
   Cliente: ClienteModel = new ClienteModel();
   displayedColumns = [
-      // 'sharedKey',
       'nombre',
       'telefono',
       'correo',
       'fechaCreacion',
       'actions'
   ];
+  disableSubmit = false;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort = new MatSort;
 
@@ -50,14 +50,7 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
   ngOnInit() {
       const grupoSerializado =  this.tempDataService.getDataNivel1();
       this.clienteDatasource = new ClienteDatasource(this.clienteService);
-      //this.cargarCliente();
   }
-
-  // cargarCliente() {
-  //   this.nivelService.findAll().subscribe( (data: NivelModel[]) => {
-  //     this.grupoNivelList = data;
-  //   });
-  // }
 
   ngAfterViewInit(): void {
     this.paginator._intl.itemsPerPageLabel = this.constants.itemPorPagina;
@@ -77,11 +70,15 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
       this.searchData();
   }
 
+  onFilter(): void{
+    this.searchData();
+  }
+
   searchData(): void {
-      this.ClienteCriteria.setTableElements(this.paginator, this.sort);
+      this.clienteCriteria.setTableElements(this.paginator, this.sort);
       this.clienteDatasource.sort = this.sort;
       this.clienteDatasource.paginator = this.paginator;
-      this.clienteDatasource.search(this.ClienteCriteria);
+      this.clienteDatasource.search(this.clienteCriteria);
   }
 
   create(): void {

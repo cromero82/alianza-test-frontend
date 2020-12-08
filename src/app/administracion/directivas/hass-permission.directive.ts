@@ -22,12 +22,13 @@ export class HassPermissionDirective implements OnDestroy {
       this.viewContainer.createEmbeddedView(this.templateRef);
       this.hasView = true;
       // DEVOLVER A LA NORMALIDAD CUANDO SE AGREGUE EL ROL Y USUARIO
-      if ( this.tokenStorageService.userHasRole(rol)) {
-        this.hasView = true;
-      } else {
-        this.hasView = false;
-        this.viewContainer.clear();
-      }
+      // if ( this.tokenStorageService.userHasRole(rol)) {
+      //   this.hasView = true;
+      // } else {
+      //   this.hasView = false;
+      //   this.viewContainer.clear();
+      // }
+      this.hasView = true;
   }
 
   ngOnDestroy() {
