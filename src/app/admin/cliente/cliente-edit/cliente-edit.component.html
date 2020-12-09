@@ -3,7 +3,6 @@
 
 <mat-dialog-content [formGroup]="form">
   <input type="hidden" formControlName="id" [(ngModel)]="cliente.id">
-  <input type="hidden" formControlName="sharedKey" [(ngModel)]="cliente.sharedKey">
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
     <div class="item" fxFlex>
       <mat-form-field class="w-50">
@@ -32,6 +31,29 @@
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
     <div class="item" fxFlex>
       <mat-form-field class="w-50">
+        <input matInput placeholder="{{ constants.sharedKey }}" formControlName="sharedKey"
+          [(ngModel)]="cliente.sharedKey" autocomplete="off" required>
+          <div *ngIf="submitted && f.sharedKey.errors" class="invalid-feedback">
+            <div *ngIf="f.sharedKey.errors.required">{{ constants.campoRequerido }}</div>
+            <div *ngIf="f.sharedKey.errors.max">{{ constants.valormaximo }} 25</div>
+          </div>
+      </mat-form-field>
+    </div>
+    <div class="item" fxFlex>
+      <mat-form-field>
+        <input matInput [matDatepicker]="dp" placeholder="Fecha de creación" [(ngModel)]="cliente.fechaCreacion"  formControlName="fechaCreacion">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+        <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
+          <div *ngIf="f.correo.errors.required">{{ constants.campoRequerido }}</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
+    <div class="item" fxFlex>
+      <mat-form-field class="w-100">
         <input matInput placeholder="{{ constants.correo }}" formControlName="correo"
           [(ngModel)]="cliente.correo" autocomplete="off" required>
           <div *ngIf="submitted && f.correo.errors" class="invalid-feedback">
@@ -40,21 +62,10 @@
           </div>
       </mat-form-field>
     </div>
-    <div class="item" fxFlex>
-      <!-- <mat-form-field class="w-50">
-        <input matInput placeholder="{{ constants.fechaCreacion }}" formControlName="fechaCreacion"
-          [(ngModel)]="cliente.fechaCreacion" autocomplete="off">
-          <div *ngIf="submitted && f.fechaCreacion.errors" class="invalid-feedback">
-            <div *ngIf="f.fechaCreacion.errors.required">{{ constants.campoRequerido }}</div>
-          </div>
-      </mat-form-field> -->
-      <mat-form-field>
-        <input matInput [matDatepicker]="dp" placeholder="Fecha de creación" [(ngModel)]="cliente.fechaCreacion"  formControlName="fechaCreacion">
-        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-        <mat-datepicker #dp></mat-datepicker>
-      </mat-form-field>
-    </div>
+
   </div>
+
+
 
 <p></p>
 

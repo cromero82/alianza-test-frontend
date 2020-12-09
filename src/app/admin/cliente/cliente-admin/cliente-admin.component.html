@@ -7,11 +7,11 @@
         </button>
     </div>
     <mat-card>
-      <mat-dialog-content style="font-size: medium;">
+      <mat-dialog-content style="font-size: medium;" *ngIf="!busquedaAvanzada">
         <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0">
           <div class="item" fxFlex>
             <div class="w-50">
-              <input matInput placeholder="Ingrese nombre"
+              <input matInput placeholder="Ingrese sharedName"
                 [(ngModel)]="clienteCriteria.param" autocomplete="off" required>
             </div>
           </div>
@@ -26,14 +26,14 @@
 
           <div class="item" fxFlex>
             <div class="w-25" align="end">
-              <button mat-raised-button [disabled]="disableSubmit" color="primary" (click)="onFilter()">
+              <button mat-raised-button [disabled]="disableSubmit" color="primary" (click)="onTypeSearch()">
                 <mat-icon class="m-1">dynamic_form</mat-icon> Busqueda avanzada
               </button>
             </div>
           </div>
-
         </div>
       </mat-dialog-content>
+
     </mat-card>
     </mat-card-title>
     <!-- <mat-card-subtitle>{{ titulo}}</mat-card-subtitle> -->
@@ -47,7 +47,12 @@
                      matSort
                      matSortActive="nombre"
                      matSortDirection="asc">
-
+              <ng-container matColumnDef="sharedKey">
+                <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.sharedKey}}</strong> </mat-header-cell>
+                <mat-cell *matCellDef="let cliente">
+                    {{cliente.sharedKey}}
+                </mat-cell>
+              </ng-container>
               <ng-container matColumnDef="nombre">
                   <mat-header-cell *matHeaderCellDef mat-sort-header><strong>{{constants.nombre}}</strong> </mat-header-cell>
                   <mat-cell *matCellDef="let cliente">

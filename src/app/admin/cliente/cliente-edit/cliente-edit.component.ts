@@ -81,8 +81,8 @@ export class ClienteEditComponent implements OnInit{
     }
    this.form = this.formBuilder.group({
     'id': [null, null],
-    'sharedKey': [null, null],
-    'fechaCreacion': [null, null],
+    'sharedKey': [null, [Validators.required, Validators.maxLength(100),]],
+    'fechaCreacion': [Validators.required],
     'nombre': [null, [Validators.required, Validators.maxLength(100),]],
     'telefono': [null, [Validators.required, Validators.maxLength(15),]],
     'correo': [null, [
@@ -133,7 +133,6 @@ export class ClienteEditComponent implements OnInit{
   }
 
   save() {
-    this.form.value.sharedKey = this.form.value.nombre;
     if(this.form.value.id == 0) {
       this.servicio.create(this.form.value).subscribe(
         data => {

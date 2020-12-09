@@ -23,12 +23,14 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
   clienteCriteria: ClienteCriteria = new ClienteCriteria();
   Cliente: ClienteModel = new ClienteModel();
   displayedColumns = [
-      'nombre',
+    'sharedKey',
+    'nombre',
       'telefono',
       'correo',
       'fechaCreacion',
       'actions'
   ];
+  busquedaAvanzada = false;
   disableSubmit = false;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort = new MatSort;
@@ -72,6 +74,10 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
 
   onFilter(): void{
     this.searchData();
+  }
+
+  onTypeSearch(): void {
+    this.busquedaAvanzada = !this.busquedaAvanzada;
   }
 
   searchData(): void {
