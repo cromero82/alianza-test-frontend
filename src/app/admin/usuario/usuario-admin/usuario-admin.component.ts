@@ -1,12 +1,10 @@
 import { Component, OnInit, AfterViewInit, ViewChild, Pipe, PipeTransform } from '@angular/core';
 import { UsuarioCriteria } from '../model/usuario-criteria';
-import { NivelModel } from 'app/admin/nivel/models/nivel-model';
 import { UsuarioModel } from 'app/seguridad/models/usuario-model';
 import { MatPaginator, MatSort, MatDialog, MatSnackBar, MatDialogConfig } from '@angular/material';
 import { CONSTANTS_SHARED } from 'app/admin/shared/constants-shared';
 import { UtilitiesService } from 'app/admin/shared/services/utilities.service';
 import { TempDataService } from 'app/admin/shared/services/temp-data.service';
-import { NivelService } from 'app/admin/nivel-list/service/nivel.service';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { UsuarioEditComponent } from '../usuario-edit/usuario-edit.component';
@@ -24,7 +22,6 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
   titulo = 'Gestión de usuarios';
   MyDataSource: any;
   UsuarioCriteria: UsuarioCriteria = new UsuarioCriteria();
-  grupoNivelList: NivelModel[] = [];
   Usuario: UsuarioModel = new UsuarioModel();
   displayedColumns = [
       'nombre',
@@ -49,7 +46,6 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
     private snackBar: MatSnackBar,
     private utilitiesService: UtilitiesService,
     private tempDataService: TempDataService,
-    private nivelService: NivelService,
     private router: Router
     ) {}
 
@@ -98,7 +94,6 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
     dialogConfig.autoFocus = true;
     const newUsuario = new UsuarioModel();
     const dataParam = {
-      grupoNivelList: this.grupoNivelList,
       itemData: newUsuario
     };
     dialogConfig.data = dataParam;
@@ -144,10 +139,3 @@ export class UsuarioAdminComponent implements OnInit, AfterViewInit {
   }
 
 }
-
-// @Pipe({name: 'list-array'})
-// export class ListArrayPipe implements PipeTransform {
-//   transform (input: any[], key: string): any {
-//       return input.map(value => value[key]);
-//   }
-// }

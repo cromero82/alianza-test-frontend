@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 import { MatDialogRef, MatSnackBar, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
 import { UserService } from 'app/seguridad/services/user.service';
 import { UtilitiesService } from 'app/admin/shared/services/utilities.service';
-import { GrupoService } from 'app/admin/grupo/service/grupo.service';
 import { GeneralConfirmComponent } from 'app/admin/shared/components/general-confirm/general-confirm.component';
 import { CONSTANTS_SHARED } from 'app/admin/shared/constants-shared';
 
@@ -31,8 +30,6 @@ export class UsuarioEditComponent implements OnInit{
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
     private utilitiesService: UtilitiesService,
-    private usuarioService: UserService,
-    private grupoService: GrupoService,
     @Inject(MAT_DIALOG_DATA) data: any) {
       this.usuario = data.itemData;
     }
