@@ -14,7 +14,6 @@ export class AppHeaderComponent {
   ) {
   }
   finalizarSesion(): void {
-    this.tokenStorageService.signOut();
-    this.router.navigate(['/login']);
+
   }
 }
