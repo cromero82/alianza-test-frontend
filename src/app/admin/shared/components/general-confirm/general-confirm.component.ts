@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Optional } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CONSTANTS_SHARED } from '../../constants-shared';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-general-confirm',
@@ -15,9 +15,10 @@ export class GeneralConfirmComponent implements OnInit {
 
   /** Variable usada para procesar el mensaje que se presentará al usuario */
   mensaje = '';
+  myVar = 'Hello World'
   constructor(
-    public dialogRef: MatDialogRef<GeneralConfirmComponent>,
-    @Inject(MAT_DIALOG_DATA) data: any,
+    @Optional() public dialogRef: MatDialogRef<GeneralConfirmComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.titulo = this.constants.confirmar.titulo;
     this.mensaje = this.constants.confirmar.mensaje;

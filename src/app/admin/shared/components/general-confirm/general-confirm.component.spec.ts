@@ -22,4 +22,10 @@ describe('GeneralConfirmComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('El saludo debe ser Hello World', ()=>{
+    //const component = new GeneralConfirmComponent();
+    const valor = component.myVar;
+    expect(valor).toEqual("Hello World");
+  })
 });
