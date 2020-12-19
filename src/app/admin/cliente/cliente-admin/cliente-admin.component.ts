@@ -34,8 +34,7 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
   disableSubmit = false;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: false }) sort: MatSort = new MatSort;
-
-  clienteDatasource: ClienteDatasource<ClienteModel>;
+  clienteDatasource = new  ClienteDatasource<ClienteModel>(this.clienteService);
   loading = true;
   constants = CLIENTE_CONSTANTS;
   disabledButton = false;
@@ -51,7 +50,6 @@ export class ClienteAdminComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
       const grupoSerializado =  this.tempDataService.getDataNivel1();
-      this.clienteDatasource = new ClienteDatasource(this.clienteService);
   }
 
   ngAfterViewInit(): void {

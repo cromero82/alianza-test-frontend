@@ -4,7 +4,6 @@ import { ClienteModel } from '../model/cliente-model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { MatDialogRef, MatSnackBar, MatDialog, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material';
-import { UserService } from 'app/seguridad/services/user.service';
 import { UtilitiesService } from 'app/admin/shared/services/utilities.service';
 import { GeneralConfirmComponent } from 'app/admin/shared/components/general-confirm/general-confirm.component';
 import { CLIENTE_CONSTANTS } from '../model/CLIENTE_CONSTANTS';
@@ -49,11 +48,11 @@ export const MY_FORMATS = {
 export class ClienteEditComponent implements OnInit{
   roles: any = [];
   cliente: ClienteModel;
-  form: FormGroup;
+  form!: FormGroup;
   submitted = false;
   disableSubmit = false;
   constants = CLIENTE_CONSTANTS;
-  filteredEstudiantes: Observable<ClienteModel>;
+  filteredEstudiantes = new Observable<ClienteModel>();
   estudianteList: ClienteModel[] = [];
   clone = {};
   constructor(private dialogRef: MatDialogRef<ClienteEditComponent>,

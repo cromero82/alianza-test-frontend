@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TokenStorageService } from 'app/seguridad/services/token-storage.service';
 
 export interface Menu {
   state: string;
@@ -15,12 +14,12 @@ const MENUITEMS = [
 
 @Injectable()
 export class MenuItems {
-  constructor(private tokenStorage: TokenStorageService) {
+  constructor() {
   }
   getMenuitem(){
-    const roles = this.tokenStorage.getRolesUsuario() as string[];
+    const roles = [];
     let itemsMenuConfirmados: ({ state: string; name: string; type: string; icon: string; permission: string; } | { state: string; name: string; type: string; icon: string; permission?: undefined; })[] = [];
-    
+
       MENUITEMS.forEach(element => {
           itemsMenuConfirmados.push(element);
       });

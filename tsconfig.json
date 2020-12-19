@@ -14,9 +14,18 @@
       "path": "./src/tsconfig.spec.json"
     }
   ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strict": false,
+    "strictPropertyInitialization": false,
+ },
   "compilerOptions": {
     //"enableIvy": false,
     "experimentalDecorators": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "strictFunctionTypes": false,
     "allowJs": true,
     "declaration": false,
     "emitDecoratorMetadata": true,

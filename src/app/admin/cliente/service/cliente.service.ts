@@ -14,9 +14,10 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ClienteService {
-
+  http: HttpClient
   private urlService = 'v1/cliente-api';
-  constructor(private http: HttpClient) {
+  constructor(http: HttpClient) {
+    this.http = http
     this.urlService = environment.apiUrl + this.urlService;
   }
 

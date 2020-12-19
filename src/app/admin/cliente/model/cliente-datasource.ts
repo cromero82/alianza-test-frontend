@@ -14,7 +14,6 @@ export class ClienteDatasource  <ClienteModel> {
   sort: any;
   paginator: any;
   public clientesData: any;
-
   constructor(
     private clienteService: ClienteService) {}
 
