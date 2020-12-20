@@ -16,6 +16,7 @@ export class GeneralConfirmComponent implements OnInit {
   /** Variable usada para procesar el mensaje que se presentará al usuario */
   mensaje = '';
   myVar = 'Hello World'
+  nombrePersona = 'Carlos'
   constructor(
     @Optional() public dialogRef: MatDialogRef<GeneralConfirmComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any
@@ -41,6 +42,10 @@ export class GeneralConfirmComponent implements OnInit {
 
   yes() {
     this.dialogRef.close(1);
+  }
+
+  public par(numero: number): boolean {
+    return numero % 2 === 0? true: false;
   }
 
 }

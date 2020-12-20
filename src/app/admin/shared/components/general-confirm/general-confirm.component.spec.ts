@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GeneralConfirmComponent } from './general-confirm.component';
 
-describe('GeneralConfirmComponent', () => {
+fdescribe('GeneralConfirmComponent', () => {
   let component: GeneralConfirmComponent;
   let fixture: ComponentFixture<GeneralConfirmComponent>;
 
@@ -19,13 +19,35 @@ describe('GeneralConfirmComponent', () => {
     fixture.detectChanges();
   });
 
+  afterEach(()=>{
+    console.log("despues de cada prueba - afterEach()");
+  })
+
+  beforeEach(()=>{
+    console.log("antes de cada prueba - feforeEach()");
+  })
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('El saludo debe ser Hello World', ()=>{
-    //const component = new GeneralConfirmComponent();
     const valor = component.myVar;
     expect(valor).toEqual("Hello World");
+  })
+
+  it('Nombre contiene Carlos', ()=>{
+    const nombre = component.nombrePersona;
+    expect(nombre).toContain("Carlos");
+  })
+
+  fit('Funcion Par Debe retornal TRUE', () => {
+    const respuesta = component.par(4);
+    expect(respuesta).toBeTruthy()
+  })
+
+  fit('Funcion Par Debe retornal FALSE', () => {
+    const respuesta = component.par(17);
+    expect(respuesta).toBeFalsy()
   })
 });
