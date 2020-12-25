@@ -21,15 +21,27 @@
  },
   "compilerOptions": {
     //"enableIvy": false,
-    "experimentalDecorators": true,
+    //"experimentalDecorators": true,
     "strictNullChecks": false,
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "strictFunctionTypes": false,
     "allowJs": true,
-    "declaration": false,
-    "emitDecoratorMetadata": true,
+    // "declaration": false,
+    // "emitDecoratorMetadata": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
+
+    "sourceMap": true,
+    "declaration": false,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "lib": [
+      "es2017",
+      "dom"
+    ]
   }
 }

@@ -20,6 +20,7 @@ export class GeneralConfirmComponent implements OnInit {
   myVar = 'Hello World'
   nombrePersona = 'Carlos'
   users: User[] = [];
+
   constructor(
     @Optional() public dialogRef: MatDialogRef<GeneralConfirmComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
@@ -37,9 +38,7 @@ export class GeneralConfirmComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.getAll();
-  }
+
 
   close() {
     this.dialogRef.close(0);
@@ -49,14 +48,19 @@ export class GeneralConfirmComponent implements OnInit {
     this.dialogRef.close(1);
   }
 
-  getAll() {
-    this.userService.getAll().subscribe( (users: User[]) => {
-      console.log(users)
-      this.users = users
-    })
+  ngOnInit(){
+    this.getUsers()
   }
-  public par(numero: number): boolean {
-    return numero % 2 === 0? true: false;
+
+  par(numero:number):boolean{
+    return numero%2===0 ? true : false
+  }
+
+  getUsers(){
+    this.userService.getAll().subscribe(users => {
+      this.users = users
+      console.log(this.users)
+    })
   }
 
 }

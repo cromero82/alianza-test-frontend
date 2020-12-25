@@ -10,7 +10,11 @@ export class UserService {
   API = 'https://api.github.com'
   constructor(private http:HttpClient) { }
 
-  getAll(): Observable<User[]>{
+  // getAll(): Observable<User[]>{
+  //   return this.http.get<User[]>(`${this.API}/users`)
+  // }
+
+  getAll():Observable<User[]>{
     return this.http.get<User[]>(`${this.API}/users`)
   }
 }

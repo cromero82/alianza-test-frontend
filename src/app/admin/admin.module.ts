@@ -15,6 +15,7 @@ import { ClienteAdminComponent } from './cliente/cliente-admin/cliente-admin.com
 import { ClienteEditComponent } from './cliente/cliente-edit/cliente-edit.component';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { UserService} from './service/user.service'
+import { BrowserModule } from '@angular/platform-browser';
 
 export const AdminRoutes: Routes = [
   {
@@ -30,6 +31,7 @@ export const AdminRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     DemoMaterialModule,
     FlexLayoutModule,
     ReactiveFormsModule,
