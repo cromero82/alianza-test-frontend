@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { User } from 'app/admin/cliente/model/user';
+import { UserService } from 'app/admin/service/user.service';
 import { CONSTANTS_SHARED } from '../../constants-shared';
 
 @Component({
@@ -17,9 +19,11 @@ export class GeneralConfirmComponent implements OnInit {
   mensaje = '';
   myVar = 'Hello World'
   nombrePersona = 'Carlos'
+  users: User[] = [];
   constructor(
     @Optional() public dialogRef: MatDialogRef<GeneralConfirmComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any,
+    private userService: UserService
   ) {
     this.titulo = this.constants.confirmar.titulo;
     this.mensaje = this.constants.confirmar.mensaje;
@@ -34,6 +38,7 @@ export class GeneralConfirmComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   close() {
@@ -44,6 +49,12 @@ export class GeneralConfirmComponent implements OnInit {
     this.dialogRef.close(1);
   }
 
+  getAll() {
+    this.userService.getAll().subscribe( (users: User[]) => {
+      console.log(users)
+      this.users = users
+    })
+  }
   public par(numero: number): boolean {
     return numero % 2 === 0? true: false;
   }
